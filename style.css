@@ -1,0 +1,238 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f8f9fa;
+    --card-border: #dee2e6;
+    --muted-color: #6c757d;
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+}
+
+/* Thick line with shadow */
+.header-line {
+    position: absolute;
+    width: 100%;
+    height: 6px; /* Thickness of the line */
+    background-color: #000000; /* Black color in light mode */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+    z-index: 1200;
+}
+
+/* Dark mode styling */
+body.dark-mode .header-line {
+    background-color: #ffffff; /* White line in dark mode */
+    box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.4); /* Lighter shadow in dark mode */
+}
+
+/* Base Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.5rem;
+
+}
+
+/* Card Styling */
+.card {
+    z-index: 1;
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Animation */
+.animate-text {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeft 1s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Dark-mode styles */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2a2a2a;
+    --card-border: #444444;
+    --muted-color: #a0a0a0;
+    --primary-color: #3d8bfd;
+    --secondary-color: #a0a0a0;
+}
+
+.dark-mode .navbar {
+    background-color: var(--card-bg) !important;
+}
+
+.dark-mode .card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+}
+
+.dark-mode .text-muted {
+    color: var(--muted-color) !important;
+}
+
+.dark-mode .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.dark-mode .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    color: var(--text-color);
+}
+
+.dark-mode .modal-content,
+.dark-mode .modal-header {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-bottom-color: var(--card-border);
+}
+
+.dark-mode .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.dark-mode .navbar-nav .nav-link,
+.dark-mode .navbar-brand,
+.dark-mode .form-control::placeholder {
+    color: var(--text-color);
+}
+
+/* Card */
+.card-img-top {
+    height: 200px; 
+    width: 100%;   
+    object-fit: cover; 
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Sidebar */ 
+#sidebar { 
+    position: fixed; 
+    top: -200px; /* Hidden off-screen */ 
+    left: 0; 
+    width: 150px; 
+    height: 120px; /* Height of the sidebar */ 
+    background-color: #f8f9fa; 
+    transition: top 0.3s ease; /* Transtition for roll down */ 
+    z-index: 500;
+} 
+ 
+/* Class for open sidebar */ 
+#sidebar.open { 
+    top: 50px; 
+    margin-left: 12px;
+    margin-top: 15px;
+} 
+ 
+/* Button to open sidebar */ 
+#toggleSidebarBtn { 
+    position: fixed; 
+    top: 15px; 
+    left: 15px; 
+    z-index: 1000; 
+}
+
+/* Apply beautiful fonts to the footer */
+footer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;  
+}
+
+footer .footer-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* Sidebar dark theme */
+.sidebar-dark {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.sidebar-dark .nav-link {
+    color: var(--text-color);
+}
+
+.sidebar-dark .nav-link:hover,
+.sidebar-dark .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-dark .dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+}
+
+.sidebar-dark .dropdown-item {
+    color: var(--text-color);
+}
+
+.sidebar-dark .dropdown-item:hover,
+.sidebar-dark .dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+/* Dark mode toggle sidebar button */
+.dark-mode #toggleSidebarBtn {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--card-border);
+}
+
+.dark-mode #toggleSidebarBtn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.im {
+    height: 350px;
+    width: 350px;
+    border-radius: 100%;
+    margin-left: 470px;
+}
+
+/*Highlight to show names */
+.highlight {
+    font-weight: bold;
+    color: #007BFF; 
+}
+
+
